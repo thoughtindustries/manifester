@@ -5,6 +5,20 @@ function addTrailingSlash(path) {
   return path.substr(-1) == '/' ? path : path + '/';
 }
 
+/**
+* Pass `manifestpath` and `opts` to return
+* a assetPath function.
+*
+* - `env` the current environment [process.env.NODE_ENV || 'development']
+* - `localPath` path to use when in development [/]
+* - `cdnUrl` url to use when in production []
+*
+* @param {String} [manifestPath]
+* @param {Object} [opts]
+* @return {Function}
+* @api public
+*/
+
 module.exports = function (manifestPath, opts) {
   assert(manifestPath, 'You must pass a path to your manifest JSON file');
 
