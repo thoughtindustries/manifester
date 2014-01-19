@@ -1,0 +1,17 @@
+{
+  "name": "manifester",
+  "version": "0.0.2",
+  "repository": "speedmanly/manifester",
+  "description": "A fingerprint manifest reader.",
+  "keywords": [
+    "asset",
+    "manifest",
+    "fingerprint",
+    "revision"
+  ],
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "license": "MIT"
+}
