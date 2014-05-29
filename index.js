@@ -28,9 +28,13 @@ module.exports = function (manifestPath, opts) {
 
   opts.env = opts.env || process.env.NODE_ENV || 'development';
 
-  var manifest = fs.readFileSync(manifestPath, 'utf8');
+  var manifest;
 
-  manifest = JSON.parse(manifest);
+  if (fs.existsSync(manifestPath)) {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  } else {
+    manifest = {};
+  }
 
   return function(filename) {
     if (manifest[filename] && opts.env != 'development') {

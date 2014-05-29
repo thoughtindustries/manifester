@@ -1,13 +1,15 @@
 {
   "name": "manifester",
-  "version": "0.0.2",
-  "repository": "speedmanly/manifester",
+  "version": "0.0.3",
+  "repository": "chrisvariety/manifester",
   "description": "A fingerprint manifest reader.",
   "keywords": [
     "asset",
     "manifest",
     "fingerprint",
-    "revision"
+    "revision",
+    "gulp-rev",
+    "rev"
   ],
   "devDependencies": {
     "mocha": "*",

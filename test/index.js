@@ -11,12 +11,9 @@ describe('manifester', function() {
     );
   });
 
-  it('returns an error if the manifestPath given is invalid', function() {
-    assert.throws(
-      function() {
-        var assetPath = require('..')('./made-up.json');
-      }
-    );
+  it('mimics the filename given when an invalid manifest is given', function() {
+    var assetPath = require('..')('./made-up.json');
+    assert.equal(assetPath('app.js'), '/app.js');
   });
 
   it('returns an error if the manifestPath given cannot be parsed', function() {
