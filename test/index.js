@@ -25,11 +25,6 @@ describe('manifester', function() {
   });
 
   describe('env', function() {
-    it('returns an un-fingerprinted path in development', function() {
-      var assetPath = require('..')(manifestPath);
-      assert.equal(assetPath('app.js'), '/app.js');
-    });
-
     it('returns a fingerprinted path in production', function() {
       var assetPath = require('..')(manifestPath, {env: 'production'});
       assert.equal(assetPath('app.js'), '/app-c27904c624.js');
@@ -43,7 +38,7 @@ describe('manifester', function() {
     });
 
     it('is used if provided', function() {
-      var assetPath = require('..')(manifestPath, {localPath: '/assets'});
+      var assetPath = require('..')('x', {localPath: '/assets'});
       assert.equal(assetPath('app.js'), '/assets/app.js');
     });
   });
@@ -55,7 +50,7 @@ describe('manifester', function() {
     });
 
     it('is not used in development', function() {
-      var assetPath = require('..')(manifestPath, {cdnUrl: 'http://d3.cloudfront.net'});
+      var assetPath = require('..')('xxx', {cdnUrl: 'http://d3.cloudfront.net'});
       assert.equal(assetPath('app.js'), '/app.js');
     });
 

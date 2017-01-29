@@ -36,11 +36,14 @@ module.exports = function (manifestPath, opts) {
     manifest = {};
   }
 
+  var base;
+  if (opts.env === 'development') {
+    base = opts.localPath;
+  } else {
+    base = opts.cdnUrl || opts.localPath;
+  }
+
   return function(filename) {
-    if (manifest[filename] && opts.env != 'development') {
-      return (opts.cdnUrl || opts.localPath) + manifest[filename];
-    } else {
-      return opts.localPath + filename;
-    }
+    return base + (manifest[filename] || filename);
   };
 };
